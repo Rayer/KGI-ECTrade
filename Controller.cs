@@ -7,19 +7,21 @@ namespace KGIECTrade
 {
     public class Controller
     {
-        TaiFexCom _tfcom;
-
-        private const string KGI_URL = "tradeapi.kgi.com.tw";
+        private readonly TaiFexCom _tfcom;
+        
+        IConfigurationProvider _configuration = new DummyConfigurationProvider();
 
         public Controller()
         {
-            _tfcom = new TaiFexCom(KGI_URL, 8000, "API");
+            var credential = _configuration.GetCredential();
+            var server = _configuration.GetServerInfo();
+            _tfcom = new TaiFexCom(server.Item1, (ushort)server.Item2, "API");
             Console.WriteLine(@"Initialization for TaiFexCom version {0}", _tfcom.version);
             _tfcom.OnRcvMessage += OnRcvMessage_EventHandler;
             _tfcom.OnGetStatus += OnGetStatus_EventHandler;
             _tfcom.OnRcvServerTime += OnRcvServerTime_EventHandler;
             _tfcom.OnRecoverStatus += OnRecoverStatus_EvenHandler;
-            _tfcom.LoginDirect(KGI_URL, 8000, "rayer", "sssss", ' ');
+            _tfcom.LoginDirect(server.Item1, (ushort)server.Item2, credential.Item1, credential.Item2, ' ');
         }
 
         private void OnRecoverStatus_EvenHandler(object sender, string topic, RECOVER_STATUS status, uint recovercount)
