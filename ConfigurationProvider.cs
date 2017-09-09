@@ -5,7 +5,7 @@ namespace KGIECTrade
     public interface IConfigurationProvider
     {
         Tuple<string, string> GetCredential();
-        Tuple<string, int> GetServerInfo();
+        Tuple<string, ushort> GetServerInfo();
     }
     
     public class DefaultConfigurationProvider : IConfigurationProvider {
@@ -14,7 +14,7 @@ namespace KGIECTrade
             throw new NotImplementedException();
         }
 
-        public Tuple<string, int> GetServerInfo()
+        public Tuple<string, ushort> GetServerInfo()
         {
             throw new NotImplementedException();
         }
@@ -29,9 +29,9 @@ namespace KGIECTrade
             return Tuple.Create("rayer", "aaa1234567");
         }
 
-        public Tuple<string, int> GetServerInfo()
+        public Tuple<string, ushort> GetServerInfo()
         {
-            return Tuple.Create(KgiUrl, 8000);
+            return Tuple.Create(KgiUrl, (ushort)8000);
         }
     }
         

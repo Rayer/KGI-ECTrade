@@ -33,8 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.KGICGCAPIATLLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>Interop.KGICGCAPIATLLib.dll</HintPath>
+    </Reference>
     <Reference Include="Package, Version=1.0.6.2, Culture=neutral, PublicKeyToken=null">
       <HintPath>Package.dll</HintPath>
+    </Reference>
+    <Reference Include="PushClient, Version=1.0.1.5, Culture=neutral, PublicKeyToken=null">
+      <HintPath>PushClient.dll</HintPath>
+    </Reference>
+    <Reference Include="QuoteCom, Version=1.0.4.1, Culture=neutral, PublicKeyToken=null">
+      <HintPath>QuoteCom.dll</HintPath>
+    </Reference>
+    <Reference Include="QuoteCom, Version=1.0.4.1, Culture=neutral, PublicKeyToken=null">
+      <HintPath>QuoteCom.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,12 +57,17 @@
     <Reference Include="TradeCom, Version=1.0.6.3, Culture=neutral, PublicKeyToken=null">
       <HintPath>TradeCom.dll</HintPath>
     </Reference>
+    <Reference Include="TradeCom, Version=1.0.6.3, Culture=neutral, PublicKeyToken=null">
+      <HintPath>TradeCom.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter.cs" />
     <Compile Include="ConfigurationProvider.cs" />
-    <Compile Include="Controller.cs" />
+    <Compile Include="TFComController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Command.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="errMsg.ini" />

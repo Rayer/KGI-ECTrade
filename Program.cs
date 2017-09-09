@@ -7,7 +7,7 @@ namespace KGIECTrade
     {
         public static void Main(string[] args)
         {
-            Controller c = new Controller();
+            TFComController c = new TFComController();
             
         }
     }
